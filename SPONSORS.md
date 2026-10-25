@@ -1,8 +1,11 @@
 <div align="center">
   <img src="docs/logo.png" alt="VoiceStudio Logo" width="96" height="96" />
-  <h1>Sponsor VoiceStudio</h1>
-  <p><b>Keep the open-source ElevenLabs alternative free, local, and shipping.</b></p>
-  <p><a href="https://github.com/sponsors/debpalash"><img src="https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub Sponsors" /></a></p>
+  <h1>Sponsor VoiceStudio & Shekinah Shine</h1>
+  <p><b>Support Shekinah Shine maintenance, sanctuary groundskeeping, AI broadcast infrastructure, and local-first open-source voice AI.</b></p>
+  <p>
+    <a href="https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD"><img src="https://img.shields.io/badge/Donate-PayPal%20(Shekinah%20Shine)-00457C?logo=paypal&logoColor=white" alt="Donate via PayPal" /></a>
+    <a href="https://github.com/sponsors/chieftechnicalwizard"><img src="https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub Sponsors" /></a>
+  </p>
 </div>
 
 ---
@@ -53,13 +56,15 @@ Existing sponsors keep the benefits they originally purchased.
 
 ## How to become a sponsor
 
-**1. Pay.** No form is needed to support VoiceStudio:
+**1. Pay.** Support directly via any of our official channels:
 
-- **GitHub Sponsors (monthly or one-time, recommended):** [github.com/sponsors/debpalash](https://github.com/sponsors/debpalash)
-- **Ko-fi (recurring or one-time):** [ko-fi.com/debpalash](https://ko-fi.com/debpalash)
-- **PayPal (one-time):** [paypal.me/palashCoder](https://paypal.me/palashCoder)
+- **PayPal (One-time or Recurring — Shekinah Shine Maintenance, Garden, and Groundskeeping):** [Donate via PayPal](https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD)
+- **Cash App:** [`$chieftechnicalwizard`](https://cash.app/$chieftechnicalwizard)
+- **Venmo:** [`@Christopher-CTW`](https://venmo.com/u/Christopher-CTW)
+- **GitHub Sponsors:** [github.com/sponsors/chieftechnicalwizard](https://github.com/sponsors/chieftechnicalwizard)
+- **Website:** [shekinahshine.org](https://www.shekinahshine.org/)
 
-**2. Ask for recognition (optional).** If you want a listing or logo, open the [sponsorship inquiry](https://github.com/debpalash/VoiceStudio/issues/new?template=sponsor.yml) with the public name, link and logo you want shown. Issues are public, so never post payment receipts or private contact details there.
+**2. Ask for recognition (optional).** If you want a listing or logo, open a [sponsorship inquiry](https://github.com/chieftechnicalwizard/VoiceStudio/issues/new) with the public name, link and logo you want shown. Issues are public, so never post payment receipts or private contact details there.
 
 **3. Private matters.** Receipts, invoices, annual or custom arrangements, and anything you don't want public go to [partner@voicestudio.sh](mailto:partner@voicestudio.sh). You can also ask in `#dev` on [Discord](https://discord.gg/bzQavDfVV9).
 

@@ -173,11 +173,11 @@ Add `-- --install` for the networked managed-runtime installation check.
 
 Agent skills: `npx skills add debpalash/VoiceStudio` — choose **voicestudio** for audio workflows or **voicestudio-maintainer** for repository maintenance.
 
-## Sponsors
+## Sponsors & Donations
 
-Sponsorship funds maintainer time, development tools, release infrastructure and test hardware; it buys recognition, not features.
+Sponsorship and donations support Shekinah Shine maintenance, sanctuary groundskeeping, AI broadcast infrastructure, and open-source development.
 
-[GitHub Sponsors](https://github.com/sponsors/debpalash) · [Ko-fi](https://ko-fi.com/debpalash) · [PayPal](https://paypal.me/palashCoder) · [Tiers and recognition](SPONSORS.md) · [Ask for recognition](https://github.com/debpalash/VoiceStudio/issues/new?template=sponsor.yml)
+[PayPal Donate (Shekinah Shine)](https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD) · [Cash App (`$chieftechnicalwizard`)](https://cash.app/$chieftechnicalwizard) · [Venmo (`@Christopher-CTW`)](https://venmo.com/u/Christopher-CTW) · [GitHub Sponsors](https://github.com/sponsors/chieftechnicalwizard) · [Shekinah Shine Website](https://www.shekinahshine.org/) · [Sponsorship Details](SPONSORS.md)
 
 ## License & responsible use
 

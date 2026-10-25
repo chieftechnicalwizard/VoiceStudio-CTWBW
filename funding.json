@@ -25,18 +25,18 @@
       {
         "guid": "github-sponsors",
         "type": "payment-provider",
-        "address": "https://github.com/sponsors/debpalash",
+        "address": "https://github.com/sponsors/chieftechnicalwizard",
         "description": "GitHub Sponsors; tiers and what each includes are listed in SPONSORS.md."
       },
       {
         "guid": "ko-fi",
         "type": "payment-provider",
-        "address": "https://ko-fi.com/debpalash"
+        "address": "https://cash.app/$chieftechnicalwizard"
       },
       {
         "guid": "paypal",
         "type": "payment-provider",
-        "address": "https://paypal.me/palashCoder"
+        "address": "https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD"
       }
     ],
     "plans": [
