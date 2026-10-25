@@ -3,8 +3,8 @@
   <h1>Sponsor VoiceStudio & Shekinah Shine</h1>
   <p><b>Support Shekinah Shine maintenance, sanctuary groundskeeping, AI broadcast infrastructure, and local-first open-source voice AI.</b></p>
   <p>
-    <a href="https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD"><img src="https://img.shields.io/badge/Donate-PayPal%20(Shekinah%20Shine)-00457C?logo=paypal&logoColor=white" alt="Donate via PayPal" /></a>
-    <a href="https://github.com/sponsors/chieftechnicalwizard"><img src="https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub Sponsors" /></a>
+    <a href="https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD"><img src="docs/badges/paypal-donate-pill.svg" alt="Donate via PayPal" height="28" align="absmiddle" /></a> &nbsp;
+    <a href="https://github.com/sponsors/chieftechnicalwizard"><img src="https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub Sponsors" height="28" align="absmiddle" /></a>
   </p>
 </div>
 
@@ -58,13 +58,13 @@ Existing sponsors keep the benefits they originally purchased.
 
 **1. Pay.** Support directly via any of our official channels:
 
-- **PayPal (One-time or Recurring — Shekinah Shine Maintenance, Garden, and Groundskeeping):** [Donate via PayPal](https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD)
-- **Cash App:** [`$chieftechnicalwizard`](https://cash.app/$chieftechnicalwizard)
-- **Venmo:** [`@Christopher-CTW`](https://venmo.com/u/Christopher-CTW)
-- **GitHub Sponsors:** [github.com/sponsors/chieftechnicalwizard](https://github.com/sponsors/chieftechnicalwizard)
-- **Website:** [shekinahshine.org](https://www.shekinahshine.org/)
+- <img src="docs/badges/icon-paypal.svg" width="16" height="16" align="absmiddle" alt="" /> **PayPal (One-time or Recurring — Shekinah Shine Maintenance, Garden, and Groundskeeping):** [PayPal Donate (Shekinah Shine)](https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD)
+- <img src="docs/badges/icon-cashapp.svg" width="16" height="16" align="absmiddle" alt="" /> **Cash App:** [Donate via CashApp](https://cash.app/$chieftechnicalwizard)
+- <img src="docs/badges/icon-venmo.svg" width="16" height="16" align="absmiddle" alt="" /> **Venmo:** [Venmo](https://venmo.com/u/Christopher-CTW)
+- <img src="docs/badges/icon-github-sponsors.svg" width="16" height="16" align="absmiddle" alt="" /> **GitHub Sponsors:** [GitHub Sponsors](https://github.com/sponsors/chieftechnicalwizard)
+- <img src="docs/badges/icon-shekinah.svg" width="16" height="16" align="absmiddle" alt="" /> **Website:** [Shekinah Shine Website](https://www.shekinahshine.org/)
 
-**2. Ask for recognition (optional).** If you want a listing or logo, open a [sponsorship inquiry](https://github.com/chieftechnicalwizard/VoiceStudio/issues/new) with the public name, link and logo you want shown. Issues are public, so never post payment receipts or private contact details there.
+**2. Ask for recognition (optional).** If you want a listing or logo, open a [sponsorship inquiry](https://github.com/chieftechnicalwizard/VoiceStudio-CTWBW/issues/new) with the public name, link and logo you want shown. Issues are public, so never post payment receipts or private contact details there.
 
 **3. Private matters.** Receipts, invoices, annual or custom arrangements, and anything you don't want public go to [partner@voicestudio.sh](mailto:partner@voicestudio.sh). You can also ask in `#dev` on [Discord](https://discord.gg/bzQavDfVV9).
 
