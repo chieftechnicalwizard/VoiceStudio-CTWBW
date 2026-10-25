@@ -1110,6 +1110,54 @@ class WhisperXBackend(ASRBackend):
         except Exception:
             pass
 
+# ── CrisperWhisper 2.0 (High-Accuracy Fast ASR) ──────────────────────────────
+
+
+class CrisperWhisperBackend(ASRBackend):
+    id = "crisper-whisper"
+    display_name = "CrisperWhisper 2.0 Large (HTTP ASR)"
+    gpu_compat = ("cuda", "cpu")
+
+    def __init__(self):
+        self._url = os.environ.get(
+            "OMNIVOICE_CRISPERWHISPER_URL", "http://127.0.0.1:8090/transcribe"
+        )
+
+    @classmethod
+    def is_available(cls) -> tuple[bool, str]:
+        import requests
+        url = os.environ.get(
+            "OMNIVOICE_CRISPERWHISPER_URL", "http://127.0.0.1:8090/transcribe"
+        )
+        base = url.rsplit("/", 1)[0] + "/health"
+        try:
+            r = requests.get(base, timeout=2)
+            if r.status_code == 200:
+                return True, "ready"
+            return False, f"CrisperWhisper status {r.status_code}"
+        except Exception as e:
+            return False, f"CrisperWhisper unavailable on {base}: {e}"
+
+    def transcribe(self, audio_path: str, *, word_timestamps: bool = True) -> dict:
+        import requests
+        with open(audio_path, "rb") as f:
+            resp = requests.post(
+                self._url,
+                files={"file": (os.path.basename(audio_path), f, "audio/wav")},
+                data={"language": "en", "mode": "intended"},
+                timeout=120,
+            )
+        if resp.status_code == 200:
+            data = resp.json()
+            text = data.get("text", "")
+            return {
+                "text": text,
+                "chunks": [{"text": text, "timestamp": (0.0, 10.0)}],
+                "language": data.get("language", "en"),
+            }
+        raise RuntimeError(f"CrisperWhisper API error {resp.status_code}: {resp.text}")
+
+
 # ── Faster-Whisper (cross-platform fallback) ────────────────────────────────
 
 
@@ -2713,6 +2761,7 @@ class _LazyASRRegistry(dict):
 
 
 _REGISTRY: dict[str, type[ASRBackend]] = _LazyASRRegistry({
+    "crisper-whisper": CrisperWhisperBackend,
     "whisperx":        WhisperXBackend,
     "faster-whisper":  FasterWhisperBackend,
     "mlx-whisper":     MLXWhisperBackend,
@@ -3003,6 +3052,8 @@ def _auto_detect() -> str:
     Auto-detect only. An explicit ``OMNIVOICE_ASR_BACKEND`` or the ``asr_backend``
     pref still wins, so anyone who pinned an engine keeps it.
     """
+    if _probe_available(CrisperWhisperBackend):
+        return "crisper-whisper"
     if _mps_available() and _probe_available(MLXWhisperBackend):
         return "mlx-whisper"
     # Same class as the Apple case, on the ROCm axis (#1529): whisperx and
@@ -3044,6 +3095,8 @@ _ISOLATED_INSTANCES: dict[str, "ASRBackend"] = {}
 
 def get_active_asr_backend(*, asr_pipe=None) -> ASRBackend:
     bid = active_backend_id()
+    if bid == "crisper-whisper":
+        return CrisperWhisperBackend()
     if bid == "pytorch-whisper":
         return PyTorchWhisperBackend(asr_pipe=asr_pipe)
     if bid == "mlx-whisper":

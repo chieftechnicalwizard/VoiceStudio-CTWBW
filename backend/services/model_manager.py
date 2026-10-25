@@ -1936,6 +1936,9 @@ def _resolve_compile_mode() -> str:
     identify a pre-Ampere device; any probe error keeps the configured mode so
     a weird torch build doesn't silently lose the optimization.
     """
+    env_mode = os.environ.get("OMNIVOICE_TORCH_COMPILE_MODE", "").strip()
+    if env_mode:
+        return env_mode
     if _TORCH_COMPILE_MODE not in _CUDAGRAPH_COMPILE_MODES:
         return _TORCH_COMPILE_MODE
     if os.environ.get(_FORCE_CUDAGRAPH_ENV, "").strip().lower() in {"1", "true", "yes", "on"}:

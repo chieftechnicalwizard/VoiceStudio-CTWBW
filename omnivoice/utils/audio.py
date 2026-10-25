@@ -76,18 +76,20 @@ def load_audio(audio_path: str, sampling_rate: int):
         PyTorch tensor of shape (1, T)
     """
     try:
-        waveform, prompt_sampling_rate = torchaudio.load(
-            audio_path, backend="soundfile"
-        )
-    except (ImportError, RuntimeError, OSError):
-        # Fallback via pydub+ffmpeg for formats torchaudio can't handle.
-        # ImportError belongs here too: torchaudio >= 2.9 routes load()
-        # through TorchCodec and raises ImportError when its FFmpeg shared
-        # libraries are absent. The ``backend="soundfile"`` argument above
-        # does NOT avoid that — 2.9 accepts and ignores it.
-        aseg = AudioSegment.from_file(audio_path)
-        waveform = audiosegment_to_tensor(aseg)
-        prompt_sampling_rate = aseg.frame_rate
+        import soundfile as sf
+        data, prompt_sampling_rate = sf.read(audio_path, dtype="float32")
+        tensor = torch.from_numpy(data)
+        waveform = tensor.unsqueeze(0) if tensor.ndim == 1 else tensor.T
+    except Exception:
+        try:
+            waveform, prompt_sampling_rate = torchaudio.load(
+                audio_path, backend="soundfile"
+            )
+        except (ImportError, RuntimeError, OSError):
+            # Fallback via pydub+ffmpeg for formats torchaudio can't handle.
+            aseg = AudioSegment.from_file(audio_path)
+            waveform = audiosegment_to_tensor(aseg)
+            prompt_sampling_rate = aseg.frame_rate
 
     if prompt_sampling_rate != sampling_rate:
         waveform = torchaudio.functional.resample(
