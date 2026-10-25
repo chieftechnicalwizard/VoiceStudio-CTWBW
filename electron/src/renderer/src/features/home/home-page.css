@@ -1,0 +1,456 @@
+.home-content {
+  padding: 30px 24px 40px;
+}
+
+.home-heading {
+  padding: 8px 0 24px;
+  margin-bottom: 8px;
+}
+
+.home-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.home-heading-copy {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  flex: 1 1 280px;
+}
+
+.home-contributors {
+  --contributor-size: clamp(34px, 3.5vw, 42px);
+  direction: ltr;
+  display: grid;
+  flex-shrink: 0;
+  grid-template-columns: repeat(var(--contributor-columns), calc(var(--contributor-size) / 2));
+  grid-template-rows: repeat(3, var(--contributor-size));
+  align-items: center;
+  gap: 0;
+  margin-inline-start: auto;
+  padding: 4px;
+  list-style: none;
+}
+
+.home-contributors li {
+  position: relative;
+}
+
+.home-contributors li:has(.home-contributor:is(:hover, :focus-visible, [data-popup-open])) {
+  z-index: 1;
+}
+
+.home-contributor {
+  display: block;
+  border-radius: 50%;
+  outline-offset: 2px;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.home-contributor-avatar {
+  position: relative;
+  display: block;
+  width: var(--contributor-size);
+  height: var(--contributor-size);
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--card);
+}
+
+/* Core maintainers share a small badge in the app’s accent color. */
+.home-core-maintainer {
+  position: absolute;
+  inset-inline-end: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--background);
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.home-core-maintainer svg {
+  width: 8px;
+  height: 8px;
+  fill: currentColor;
+}
+
+.home-contributor-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--muted-foreground);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.home-contributor-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+}
+
+.home-contributor:is(:hover, :focus-visible, [data-popup-open]) {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgb(0 0 0 / 15%);
+}
+
+.home-contributor:focus-visible {
+  outline: 2px solid var(--ring);
+}
+
+.home-contributor-popup {
+  width: 216px;
+  padding: 8px;
+}
+
+.home-contributor-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 10px;
+  font-size: 14px;
+}
+
+.home-contributor-identity img {
+  border-radius: 50%;
+}
+
+.home-contributor-popup a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.home-contributor-popup a:is(:hover, :focus-visible) {
+  background: var(--accent);
+}
+
+.home-contributor-popup a:focus-visible {
+  outline: 2px solid var(--ring);
+}
+
+.home-contributor-popup small {
+  display: block;
+  color: var(--muted-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-contributor {
+    transition: none;
+  }
+  .home-contributor:is(:hover, :focus-visible, [data-popup-open]) {
+    transform: none;
+  }
+}
+
+.home-destinations--primary {
+  margin-bottom: 18px;
+}
+
+.home-destination {
+  --home-accent: #79b9ee;
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--border) 85%, var(--foreground) 6%);
+  border-radius: 17px;
+  background: var(--card);
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.home-destination[data-destination='/design'] {
+  --home-accent: #b8a1ee;
+}
+.home-destination[data-destination='/dub'] {
+  --home-accent: #72cebd;
+}
+
+.home-destination--primary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 176px;
+  padding: 20px;
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      color-mix(in srgb, var(--home-accent) 9%, transparent),
+      transparent 75%
+    ),
+    var(--card);
+  border-color: color-mix(in srgb, var(--home-accent) 22%, var(--border));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--foreground) 4%, transparent);
+}
+
+.home-card-art {
+  position: absolute;
+  z-index: -1;
+  top: 12px;
+  right: 12px;
+  width: 46%;
+  height: 70px;
+  stroke: var(--home-accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0.26;
+}
+
+.home-destination-icon {
+  flex-shrink: 0;
+}
+
+.home-feature-svg {
+  width: 25px;
+  height: 25px;
+  overflow: visible;
+}
+
+.home-feature-svg :is(g, path, rect, circle) {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Finite, interaction-only motion. No idle animation or promoted layers. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-destination:is(:hover, :focus-visible) .home-feature-svg [class^='home-svg-'] {
+    animation-duration: 1.6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-wave {
+    animation-name: home-wave;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-tilt {
+    animation-name: home-tilt;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-spark {
+    animation-name: home-spark;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-exchange {
+    animation-name: home-exchange;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-sequence {
+    animation-name: home-sequence;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-page {
+    animation-name: home-page;
+    transform-origin: left center;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-fan {
+    animation-name: home-fan;
+    transform-origin: bottom center;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-adjust {
+    animation-name: home-adjust;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-delay {
+    animation-delay: 0.15s;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-delay-long {
+    animation-delay: 0.3s;
+  }
+  .home-destination:is(:hover, :focus-visible) .home-svg-reverse {
+    animation-direction: reverse;
+  }
+}
+
+@keyframes home-wave {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  35% {
+    transform: scaleY(0.45);
+  }
+  65% {
+    transform: scaleY(0.85);
+  }
+}
+@keyframes home-tilt {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  45% {
+    transform: rotate(-9deg);
+  }
+}
+@keyframes home-spark {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  45% {
+    opacity: 0.4;
+    transform: scale(0.75);
+  }
+}
+@keyframes home-exchange {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+}
+@keyframes home-sequence {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0.25;
+  }
+  65% {
+    opacity: 1;
+  }
+}
+@keyframes home-page {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(0.3);
+    opacity: 0.4;
+  }
+}
+@keyframes home-fan {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+@keyframes home-adjust {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.home-destination-copy {
+  min-width: 0;
+}
+
+.home-destination--primary .home-destination-copy {
+  margin-top: 22px;
+  padding-right: 20px;
+}
+
+.home-destination-copy h3 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+.home-destination--primary h3 {
+  font-size: 16px;
+}
+
+.home-destination-copy p {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--foreground) 72%, var(--background));
+}
+
+.home-destination-arrow {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+  opacity: 0.65;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.home-destination--primary .home-destination-arrow {
+  position: absolute;
+  bottom: 23px;
+  right: 20px;
+}
+
+.home-destination--secondary {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 17px 15px;
+  background: color-mix(in srgb, var(--card) 70%, var(--background));
+}
+
+.home-destination--secondary .home-destination-copy {
+  flex: 1;
+}
+
+.home-destination:hover,
+.home-destination:focus-visible {
+  border-color: color-mix(in srgb, var(--home-accent) 50%, var(--border));
+  box-shadow:
+    0 5px 18px rgb(0 0 0 / 7%),
+    inset 0 1px 0 color-mix(in srgb, var(--foreground) 6%, transparent);
+}
+
+.home-destination:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.home-destination:hover .home-destination-arrow,
+.home-destination:focus-visible .home-destination-arrow {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .home-content {
+    padding: 20px 16px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-destination,
+  .home-destination-arrow {
+    transition: none;
+  }
+  .home-destination:hover .home-destination-arrow {
+    transform: none;
+  }
+}

@@ -1,0 +1,35 @@
+/** Translate known diagnostic topics, never a translation key supplied by a server. */
+export function generationFailureMessage(
+  value: unknown,
+  translate: (key: string) => string,
+): string | undefined {
+  if (!value || typeof value !== 'object') return undefined;
+  // Stable transcription failure codes (backend/core/public_errors.py): the
+  // backend sends fixed English text, the app shows the localized equivalent.
+  switch ((value as { code?: unknown }).code) {
+    case 'transcription_media_tool':
+      return translate('tts_errors.transcription_media_tool');
+    case 'transcription_pipe_lost':
+      return translate('tts_errors.transcription_pipe_lost');
+  }
+  switch ((value as { docs_topic?: unknown }).docs_topic) {
+    case 'GPU_ARCH_UNSUPPORTED':
+      return translate('tts_errors.gpu_arch_unsupported');
+    case 'WINDOWS_APP_CONTROL_BLOCKED':
+      return translate('tts_errors.windows_app_control_blocked');
+    case 'AUDIO_IO_FAILED':
+      return translate('tts_errors.audio_io_failed');
+    case 'NO_AUDIO_TRACK':
+      return translate('tts_errors.no_audio_track');
+    case 'GPU_OOM':
+      return translate('tts_errors.gpu_oom');
+    case 'HOST_MEMORY_EXHAUSTED':
+      return translate('tts_errors.host_memory_exhausted');
+    case 'ENGINE_DEPENDENCY_MISSING':
+      return translate('tts_errors.engine_dependency_missing');
+    case 'REFERENCE_STT_MISSING':
+      return translate('tts_errors.reference_stt_missing');
+    default:
+      return undefined;
+  }
+}

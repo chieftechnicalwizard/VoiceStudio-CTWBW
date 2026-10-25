@@ -1,0 +1,35 @@
+import { useModelCatalogue } from '@/features/settings/model-catalogue-query';
+import { engineFamilyState, useEngines } from './use-engines';
+import { useBackendStatus } from './use-backend-status';
+import { isBackendReachable } from '@shared/utils/backendStage';
+
+export type TtsReadinessBlocker = 'engine' | 'loading' | 'cloning' | null;
+
+/** Resolve the selected TTS engine and explicit local weights without loading either. */
+export function useTtsReadiness(
+  operation?: 'tts' | 'longform' | 'audiobook' | 'batch' | 'dub',
+): Exclude<TtsReadinessBlocker, 'cloning'>;
+export function useTtsReadiness(operation: string): TtsReadinessBlocker;
+export function useTtsReadiness(operation = 'tts'): TtsReadinessBlocker {
+  const backend = useBackendStatus();
+  const engines = useEngines();
+  const catalogue = useModelCatalogue();
+  const tts = engineFamilyState(engines.data, 'tts');
+  const activeEngine = tts?.active ?? undefined;
+  // A live-but-busy backend (#2430) is not a loading state: it is mid-job, so
+  // the engine answers as soon as that job releases the event loop. Blocking
+  // generation here is what left the workspace visible but unusable.
+  if (!isBackendReachable(backend.stage)) return 'loading';
+  if (engines.isLoading) return 'loading';
+  if (engines.isError || !engines.data || !activeEngine) return 'engine';
+  if (!engines.activeTtsReady) return 'engine';
+  if (
+    operation === 'clone' &&
+    tts?.backends.find((item) => item.id === activeEngine)?.supports_cloning === false
+  )
+    return 'cloning';
+  const activeModelId = tts?.active_model;
+  if (activeModelId && catalogue.isLoading) return 'loading';
+  const activeModel = catalogue.data?.models.find((model) => model.repo_id === activeModelId);
+  return activeModel && (!activeModel.installed || activeModel.incomplete) ? 'engine' : null;
+}

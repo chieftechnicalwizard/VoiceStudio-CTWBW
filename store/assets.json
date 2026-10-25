@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "iconSource": "docs/logo.png",
+  "screenshots": [
+    { "source": "docs/screenshot-launchpad.png", "caption": "Start a local voice workflow" },
+    { "source": "docs/screenshot-clone.png", "caption": "Clone a voice from a reference recording" },
+    { "source": "docs/screenshot-studio.png", "caption": "Create and refine generated speech" },
+    { "source": "docs/screenshot-dub.png", "caption": "Translate and dub audio or video" },
+    { "source": "docs/screenshot-gallery.png", "caption": "Browse locally available voices" },
+    { "source": "docs/screenshot-engines.png", "caption": "Manage local speech engines and models" }
+  ]
+}
