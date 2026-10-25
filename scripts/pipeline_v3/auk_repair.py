@@ -86,7 +86,8 @@ def query_auk_repair(
     target_text: str,
     asr_text: str = "",
     instruction: str = "",
-    timeout: int = 25
+    timeout: int = 25,
+    preserve_duration: bool = False,
 ) -> bytes | None:
     """
     Dispatches a surgical speech-repair request to the resident AuK service.
@@ -108,7 +109,8 @@ def query_auk_repair(
             "instruction": instruction,
             "nfe": 32,
             "cfg": 2.0,
-            "speed": 1.0
+            "speed": 1.0,
+            "preserve_duration": "true" if preserve_duration else "false",
         }
         resp = session.post(f"{auk_url}/repair", files=files, data=data, timeout=timeout)
         if resp.status_code == 200 and len(resp.content) > 1000:
@@ -271,4 +273,45 @@ def repair_and_verify_chunk(
     else:
         print(f"      ✕ [AuK HEALED] Repair did not improve QA score ({old_acc:.1%} -> {new_acc:.1%}).")
         return False, wav_bytes, old_acc, asr_text
+
+
+def repair_pitch_or_timbre_with_auk(
+    session: requests.Session,
+    auk_url: str,
+    asr_url: str,
+    wav_bytes: bytes,
+    target_text: str,
+    semitones: int = 2,
+    qa_threshold: float = 0.93,
+) -> tuple[bool, bytes, float, str]:
+    """
+    Uses AuK Cookbook Section 3.1 (Pitch Editing: 'Raise the pitch by N semitones.')
+    and Section 5.1 (Quality Restoration: 'Repair the muffling and restore natural, clear speech.')
+    with preserve_duration=True to heal low-pitch / muffled takes that already have valid lexical words.
+    """
+    if not auk_url:
+        return False, wav_bytes, 0.0, ""
+
+    instructions = [
+        f"Raise the pitch by {semitones} semitones.",
+        "Repair the muffling and restore natural, clear speech.",
+    ]
+    for inst in instructions:
+        repaired_wav = query_auk_repair(
+            session=session,
+            auk_url=auk_url,
+            wav_bytes=wav_bytes,
+            target_text=target_text,
+            instruction=inst,
+            preserve_duration=True,
+        )
+        if not repaired_wav:
+            continue
+        timbre_ok, _ = check_voice_timbre_consistency(repaired_wav, min_similarity=0.970)
+        if not timbre_ok:
+            continue
+        acc, asr_txt = query_crisperwhisper_qa(session, asr_url, repaired_wav, target_text)
+        if acc >= qa_threshold:
+            return True, repaired_wav, acc, asr_txt
+    return False, wav_bytes, 0.0, ""
 
