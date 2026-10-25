@@ -44,7 +44,7 @@ jobs:
       # iOS xcframeworks for the pinned on-device runtimes (sherpa-onnx, onnxruntime,
       # llama.cpp, omnivoice.cpp); needs Xcode, so it only runs here.
       - name: Cache native runtimes
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: mobile/native/ios/build
           key: ios-native-${{ hashFiles('mobile/native/pins.json', 'mobile/native/ios/**', '!mobile/native/ios/build/**') }}
