@@ -3,7 +3,7 @@
   <h1>Sponsor VoiceStudio & Shekinah Shine</h1>
   <p><b>Support Shekinah Shine maintenance, sanctuary groundskeeping, AI broadcast infrastructure, and local-first open-source voice AI.</b></p>
   <p>
-    <a href="https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD"><img src="docs/badges/paypal-donate-pill.svg" alt="Donate via PayPal" height="28" align="absmiddle" /></a> &nbsp;
+    <a href="https://www.shekinahshine.org/?donate=paypal"><img src="docs/badges/paypal-donate-pill.svg" alt="Donate via PayPal" height="28" align="absmiddle" /></a> &nbsp;
     <a href="https://github.com/sponsors/chieftechnicalwizard"><img src="https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub Sponsors" height="28" align="absmiddle" /></a>
   </p>
 </div>
@@ -58,9 +58,9 @@ Existing sponsors keep the benefits they originally purchased.
 
 **1. Pay.** Support directly via any of our official channels:
 
-- <img src="docs/badges/icon-paypal.svg" width="16" height="16" align="absmiddle" alt="" /> **PayPal (One-time or Recurring — Shekinah Shine Maintenance, Garden, and Groundskeeping):** [PayPal Donate (Shekinah Shine)](https://www.paypal.com/donate/?business=DQWR2UNVNWPQU&no_recurring=0&item_name=SHEKINAH+SHINE+MAINTENANCE%2C+GARDEN%2C+AND+GROUNDSKEEPING&currency_code=USD)
-- <img src="docs/badges/icon-cashapp.svg" width="16" height="16" align="absmiddle" alt="" /> **Cash App:** [Donate via CashApp](https://cash.app/$chieftechnicalwizard)
-- <img src="docs/badges/icon-venmo.svg" width="16" height="16" align="absmiddle" alt="" /> **Venmo:** [Venmo](https://venmo.com/u/Christopher-CTW)
+- <img src="docs/badges/icon-paypal.svg" width="16" height="16" align="absmiddle" alt="" /> **PayPal (One-time or Recurring — Shekinah Shine Maintenance, Garden, and Groundskeeping):** [PayPal Donate (Shekinah Shine)](https://www.shekinahshine.org/?donate=paypal)
+- <img src="docs/badges/icon-cashapp.svg" width="16" height="16" align="absmiddle" alt="" /> **Cash App:** [Donate via CashApp](https://www.shekinahshine.org/?donate=cashapp)
+- <img src="docs/badges/icon-venmo.svg" width="16" height="16" align="absmiddle" alt="" /> **Venmo:** [Venmo](https://www.shekinahshine.org/?donate=venmo)
 - <img src="docs/badges/icon-github-sponsors.svg" width="16" height="16" align="absmiddle" alt="" /> **GitHub Sponsors:** [GitHub Sponsors](https://github.com/sponsors/chieftechnicalwizard)
 - <img src="docs/badges/icon-shekinah.svg" width="16" height="16" align="absmiddle" alt="" /> **Website:** [Shekinah Shine Website](https://www.shekinahshine.org/)
 
