@@ -86,6 +86,9 @@ asr_engines:
     readme: "**sherpa-onnx** (live dictation)"
   - id: openai-compat-asr
     readme: "**OpenAI-compatible** ⚠️ configured server"
+  - id: crisper-whisper
+    readme: "CrisperWhisper 2.0 Large"
+    doc: docs/engines/crisperwhisper-asr.md
 
 # Doc files that must exist (the install path users are sent to).
 docs:

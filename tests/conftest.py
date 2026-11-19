@@ -10,6 +10,17 @@ _BACKEND = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "backen
 if _BACKEND not in sys.path:
     sys.path.insert(0, _BACKEND)
 
+# Bind `scripts` to the repo-root package before pytest collects `tests/scripts/`
+# (whose empty `__init__.py` otherwise shadows `scripts` under `--import-mode=prepend`).
+_REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+if "scripts" in sys.modules and (
+    getattr(sys.modules["scripts"], "__file__", "") or ""
+).startswith(os.path.dirname(__file__)):
+    del sys.modules["scripts"]
+import scripts as _repo_scripts  # noqa: E402,F401
+
 
 # ── Hermetic app state (issue #878) ────────────────────────────────────────
 # Tests must never read or write the developer's real app state. Without

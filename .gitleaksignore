@@ -8,3 +8,6 @@
 #
 # RFC 6455 sample Sec-WebSocket-Key in the fake backend test (not a secret).
 f6d634e19902c0fd0e64947e635359d5bc1f85de:electron/tests/fake-health-backend.test.mjs:generic-api-key:59
+#
+# Base62 key alphabet constant in ContentReport.newKey() (not a credential).
+dd27129d90d801d3ee33fc6677205071da20134a:mobile/android/core/network/src/main/kotlin/com/voicestudio/mobile/network/ContentReports.kt:generic-api-key:38
